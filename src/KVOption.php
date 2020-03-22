@@ -66,7 +66,7 @@ class KVOption extends Model
      * @param  mixed   $value
      * @return void
      */
-    public function set($key, $value, $comment)
+    public function set($key, $value, $comment = null)
     {
         $this->updateOrCreate(
             ['key' => $key], 

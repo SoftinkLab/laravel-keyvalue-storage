@@ -30,7 +30,11 @@ class KeyValueStorageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('kvoption', KVOption::class);
+        if (config('kvstorage.method') == 'database'){
+            $this->app->bind('kvoption', KVOption::class);
+        }else{
+            $this->app->bind('kvoption', KVOptionJSON::class);
+        }
 
         $this->registerHelpers();
     }

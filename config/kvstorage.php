@@ -18,6 +18,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Storage Driver
+    |--------------------------------------------------------------------------
+    |
+    | Specify the filesystem driver for your key file storage in "file" mode.
+    | You need to configure your storage configuration before use.
+    |
+    | Supported: "local", "public", "s3"
+    | Refer "config/filesystem.php" for more more file systems.
+    |
+    */
+
+    'disk' => "local",
+
+    /*
+    |--------------------------------------------------------------------------
     | File Path
     |--------------------------------------------------------------------------
     |
