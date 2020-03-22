@@ -33,7 +33,7 @@ class KVOptionJSON
      * Get the specified option by key.
      *
      * @param  string  $key
-     * @param  mixed  $default
+     * @param  mixed   $default
      * @return mixed
      */
     public function get($key, $default = null)
@@ -49,7 +49,7 @@ class KVOptionJSON
      * Set a given option.
      *
      * @param  string  $key
-     * @param  string   $comment
+     * @param  string  $comment
      * @param  mixed   $value
      * @return void
      * 
@@ -79,6 +79,42 @@ class KVOptionJSON
         }
 
         $this->setContent();
+    }
+
+    /**
+     * Increment a value from the options.
+     *
+     * @param string $key
+     * @param int    $factor
+     *
+     * @return int|null|string
+     */
+    public function increment($key, int $factor = 1)
+    {
+        $currentValue = $this->get($key) ?? 0;
+        $newValue = $currentValue + $factor;
+
+        $this->set($key, $newValue);
+
+        return $newValue;
+    }
+
+    /**
+     * Decrement a value from the options.
+     *
+     * @param string $key
+     * @param int    $factor
+     *
+     * @return int|null|string
+     */
+    public function decrement($key, int $factor = 1)
+    {
+        $currentValue = $this->get($key) ?? 0;
+        $newValue = $currentValue - $factor;
+
+        $this->set($key, $newValue);
+
+        return $newValue;
     }
 
     /**
