@@ -135,7 +135,7 @@ There are some console commands to perform actions.
 
 **Create an Option**
 ```bash
-php artisan kvoption:set {key} {value} --comment={comment}
+php artisan kvoption:create {key} {value} --comment={comment}
 ```
 *comment is optional.*
 
