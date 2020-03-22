@@ -12,8 +12,8 @@
     "homepage": "https://www.softinklab.com",
     "require": {
         "php": "^7.2",
-        "illuminate/support": "^7.0",
-        "illuminate/database": "^7.0"
+        "illuminate/support": "^6.0|^7.0",
+        "illuminate/database": "^6.0|^7.0"
     },
     "require-dev": {
         "orchestra/database": "^5.0",
