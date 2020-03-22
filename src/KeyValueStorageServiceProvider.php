@@ -16,7 +16,13 @@ class KeyValueStorageServiceProvider extends ServiceProvider
             __DIR__ . '/../config/kvstorage.php' => config_path('kvstorage.php'),
         ]);
 
-        
+        //Commands
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                Console\KeyValueStorageCommand::class,
+                Console\KeyValueDeleteCommand::class,
+            ]);
+        }
     }
 
     /**
