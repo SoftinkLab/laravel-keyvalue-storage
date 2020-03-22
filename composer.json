@@ -1,14 +1,22 @@
 {
     "name": "softinklab/laravel-keyvalue-storage",
-    "description": "Key-Value Storage for Laravel via Database",
+    "description": "Key-Value Storage for Laravel using Database or JSON File",
+    "keywords": [
+        "key value storage",
+        "laravel options",
+        "json storage",
+        "laravel key value storage",
+        "softink lab"
+    ],
     "type": "library",
+    "homepage": "https://www.softinklab.com",
     "require": {
         "php": "^7.2",
         "illuminate/support": "^7.0",
         "illuminate/database": "^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.1@dev"
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "files": [
@@ -22,9 +30,14 @@
     "authors": [
         {
             "name": "Pasan Bhanu Guruge",
-            "email": "pasan@softinklab.com"
+            "email": "pasan@softinklab.com",
+            "homepage": "https://www.softinklab.com",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "email": "info@softinklab.com"
+    },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
