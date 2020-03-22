@@ -15,6 +15,8 @@ class KeyValueStorageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/kvstorage.php' => config_path('kvstorage.php'),
         ]);
+
+        
     }
 
     /**
@@ -23,5 +25,17 @@ class KeyValueStorageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('kvoption', KVOption::class);
+
+        $this->registerHelpers();
+    }
+
+    /**
+     * Register helpers file
+     */
+    public function registerHelpers()
+    {
+        if (file_exists($file = __DIR__ . '\Http\helpers.php')) {
+            require_once $file;
+        }
     }
 }

@@ -46,15 +46,16 @@ class KVOption extends Model
      * Get the specified option by key.
      *
      * @param  string  $key
+     * @param  mixed  $default
      * @return mixed
      */
-    public function get($key)
+    public function get($key, $default = null)
     {
         if ($option = $this->where('key', $key)->first()) {
             return $option->value;
         }
 
-        return null;
+        return $default;
     }
 
     /**
@@ -81,20 +82,38 @@ class KVOption extends Model
      */
     public function setArray($array)
     {
-        foreach ($array as $option) {
+        // Multiple elements are present
+        if (is_array($array[0])){
+            foreach ($array as $option) {
+                // Check if comment is available.
+                if (count($option) == 2) {
+                    $this->updateOrCreate(
+                        ['key' => $option[0]],
+                        ['value' => $option[1]]
+                    );
+                } else {
+                    $this->updateOrCreate(
+                        ['key' => $option[0]],
+                        ['value' => $option[1], 'comment' => $option[2]]
+                    );
+                }
+            }
+        }else{
+            $option = $array;
             // Check if comment is available.
-            if (count($option) == 2){
+            if (count($option) == 2) {
                 $this->updateOrCreate(
                     ['key' => $option[0]],
                     ['value' => $option[1]]
                 );
-            }else{
+            } else {
                 $this->updateOrCreate(
                     ['key' => $option[0]],
                     ['value' => $option[1], 'comment' => $option[2]]
                 );
             }
         }
+        
     }
 
     /**
