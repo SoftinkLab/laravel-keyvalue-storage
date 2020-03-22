@@ -137,9 +137,15 @@ php artisan kvoption:set {key} {value} --comment={comment}
 php artisan kvoption:delete {key}
 ```
 
+## Credits
+
+This package is inspired by,
+- [spatie/valuestore](https://github.com/spatie/valuestore) by Spatie
+- [appstract/laravel-options](https://github.com/appstract/laravel-options) by Appstract
+
 ## Contributing
 
-Contributions are welcome!
+Contributions are welcome! Please refer [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## License
 
