@@ -2,15 +2,14 @@ language: php
 
 php:
   - 7.2
-  - 7.3
 
 env:
   matrix:
-    - COMPOSER_FLAGS=""
+    fast_finish: true
 
 before_script:
   - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+  - travis_retry composer install --no-interaction --prefer-source
 
 script:
   - php vendor/bin/phpunit --coverage-text
