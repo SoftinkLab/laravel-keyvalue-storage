@@ -1,0 +1,111 @@
+<?php
+
+namespace SoftinkLab\LaravelKeyvalueStorage;
+
+use Illuminate\Database\Eloquent\Model;
+
+class KVOption extends Model
+{
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'kv_storage';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var [type]
+     */
+    protected $fillable = [
+        'key',
+        'value',
+        'comment',
+    ];
+
+    /**
+     * Determine if the given key exists.
+     *
+     * @param  string  $key
+     * @return bool
+     */
+    public function exists($key)
+    {
+        return $this->where('key', $key)->exists();
+    }
+
+    /**
+     * Get the specified option by key.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function get($key)
+    {
+        if ($option = $this->where('key', $key)->first()) {
+            return $option->value;
+        }
+
+        return null;
+    }
+
+    /**
+     * Set a given option.
+     *
+     * @param  string  $key
+     * @param  string   $comment
+     * @param  mixed   $value
+     * @return void
+     */
+    public function set($key, $value, $comment)
+    {
+        $this->updateOrCreate(
+            ['key' => $key], 
+            ['value' => $value, 'comment' => $comment]
+        );
+    }
+
+    /**
+     * Set given options of array.
+     *
+     * @param  array  $array
+     * @return void
+     */
+    public function setArray($array)
+    {
+        foreach ($array as $option) {
+            // Check if comment is available.
+            if (count($option) == 2){
+                $this->updateOrCreate(
+                    ['key' => $option[0]],
+                    ['value' => $option[1]]
+                );
+            }else{
+                $this->updateOrCreate(
+                    ['key' => $option[0]],
+                    ['value' => $option[1], 'comment' => $option[2]]
+                );
+            }
+        }
+    }
+
+    /**
+     * Delete the specified option.
+     *
+     * @param  string  $key
+     * @return bool
+     */
+    public function remove($key)
+    {
+        return (bool) $this->where('key', $key)->delete();
+    }
+
+}

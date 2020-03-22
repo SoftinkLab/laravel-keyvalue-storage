@@ -26,7 +26,10 @@
         "laravel": {
             "providers": [
                 "SoftinkLab\\LaravelKeyvalueStorage\\KeyValueStorageServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "KVOption": "SoftinkLab\\LaravelKeyvalueStorage\\KeyValueStorageServiceProvider\\Facades\\KVOption"
+            }
         }
     }
 }

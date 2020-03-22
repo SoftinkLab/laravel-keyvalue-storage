@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKvOptionsTable extends Migration
+class CreateKvStorageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateKvOptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kv_options', function (Blueprint $table) {
+        Schema::create('kv_storage', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('key')->unique();
             $table->text('value');
-            $table->text('comment');
+            $table->text('comment')->nullable();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateKvOptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kv_options');
+        Schema::dropIfExists('kv_storage');
     }
 }
