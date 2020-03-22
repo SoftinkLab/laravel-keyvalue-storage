@@ -89,7 +89,7 @@ class KVOptionJSON
      *
      * @return int|null|string
      */
-    public function increment($key, int $factor = 1)
+    public function incrementValue($key, int $factor = 1)
     {
         $currentValue = $this->get($key) ?? 0;
         $newValue = $currentValue + $factor;
@@ -107,7 +107,7 @@ class KVOptionJSON
      *
      * @return int|null|string
      */
-    public function decrement($key, int $factor = 1)
+    public function decrementValue($key, int $factor = 1)
     {
         $currentValue = $this->get($key) ?? 0;
         $newValue = $currentValue - $factor;
