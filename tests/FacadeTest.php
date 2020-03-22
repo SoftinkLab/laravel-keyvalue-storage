@@ -6,7 +6,7 @@ use SoftinkLab\LaravelKeyvalueStorage\Facades\KVOption;
 use SoftinkLab\LaravelKeyvalueStorage\KeyValueStorageServiceProvider;
 use Orchestra\Testbench\TestCase;
 
-abstract class FacadeTest extends TestsCase
+abstract class FacadeTest extends TestCase
 {
     /**
      * Define environment setup.
