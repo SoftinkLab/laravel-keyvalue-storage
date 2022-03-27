@@ -157,4 +157,4 @@ Contributions are welcome! Please refer [CONTRIBUTING](CONTRIBUTING.md) for deta
 
 ## License
 
-Laravel Key Value Storage is open-sourced software licensed under the [MIT License](LICENSE.md).
+Laravel Key Value Storage is open-sourced software licensed under the [Apache 2.0 License](LICENSE.md).
