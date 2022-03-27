@@ -68,10 +68,17 @@ class KVOption extends Model
      */
     public function set($key, $value, $comment = null)
     {
-        $this->updateOrCreate(
-            ['key' => $key], 
-            ['value' => $value, 'comment' => $comment]
-        );
+        if ($comment == null) {
+            $this->updateOrCreate(
+                ['key' => $key],
+                ['value' => $value]
+            );
+        } else {
+            $this->updateOrCreate(
+                ['key' => $key],
+                ['value' => $value, 'comment' => $comment]
+            );
+        }
     }
 
     /**
@@ -83,7 +90,7 @@ class KVOption extends Model
     public function setArray($array)
     {
         // Multiple elements are present
-        if (is_array($array[0])){
+        if (is_array($array[0])) {
             foreach ($array as $option) {
                 // Check if comment is available.
                 if (count($option) == 2) {
@@ -98,7 +105,7 @@ class KVOption extends Model
                     );
                 }
             }
-        }else{
+        } else {
             $option = $array;
             // Check if comment is available.
             if (count($option) == 2) {
@@ -113,7 +120,6 @@ class KVOption extends Model
                 );
             }
         }
-        
     }
 
     /**
@@ -168,5 +174,4 @@ class KVOption extends Model
     {
         return (bool) $this->where('key', $key)->delete();
     }
-
 }
