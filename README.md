@@ -7,7 +7,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/SoftinkLab/laravel-keyvalue-storage)](https://packagist.org/packages/softinklab/laravel-keyvalue-storage)
 [![Total Downloads](https://img.shields.io/packagist/dt/SoftinkLab/laravel-keyvalue-storage)](https://packagist.org/packages/softinklab/laravel-keyvalue-storage)
 [![Software License](https://img.shields.io/packagist/l/SoftinkLab/laravel-keyvalue-storage)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/SoftinkLab/laravel-keyvalue-storage)](https://travis-ci.org/SoftinkLab/laravel-keyvalue-storage)
+[![Build Status](https://img.shields.io/travis/SoftinkLab/laravel-keyvalue-storage)](https://travis-ci.com/SoftinkLab/laravel-keyvalue-storage)
   
 </div>
 
@@ -60,6 +60,7 @@ You can change the settings in `config/kvstorage.php`.
 Example : Databse Storage
 ```
 'method' => 'database',
+'table_name' => 'kv_storage',
 ```
 
 Example : File Storage
