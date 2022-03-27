@@ -18,7 +18,10 @@ class KVOption extends Model
      *
      * @var string
      */
-    protected $table = 'kv_storage';
+    public function getTable()
+    {
+        return config('kvstorage.table_name', 'kv_storage');
+    }
 
     /**
      * The attributes that are mass assignable.
