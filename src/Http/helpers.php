@@ -33,6 +33,19 @@ if (!function_exists('kvoption_exists')) {
      */
     function kvoption_exists($key)
     {
-        return app('option')->exists($key);
+        return app('kvoption')->exists($key);
+    }
+}
+
+if (!function_exists('kvoption_remove')) {
+    /**
+     * Check the specified option exits by key.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    function kvoption_remove($key)
+    {
+        return app('kvoption')->remove($key);
     }
 }

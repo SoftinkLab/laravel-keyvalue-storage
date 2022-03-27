@@ -2,13 +2,21 @@ language: php
 
 php:
   - 7.2
+  - 7.3
+  - 7.4
+  - 8.0
 
 env:
+  - LARAVEL_VERSION=^6.0
+  - LARAVEL_VERSION=^7.0
+  - LARAVEL_VERSION=^8.0
+  - LARAVEL_VERSION=^9.0
   matrix:
     fast_finish: true
 
 before_script:
   - travis_retry composer self-update
+  - composer require laravel/framework:${LARAVEL_VERSION}
   - travis_retry composer install --no-interaction --prefer-source
 
 script:

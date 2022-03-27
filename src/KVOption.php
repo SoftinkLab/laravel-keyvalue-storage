@@ -20,7 +20,7 @@ class KVOption extends Model
      */
     public function getTable()
     {
-        return config('kvstorage.table_name', 'kv_storage');
+        return config('kvstorage.table_name');
     }
 
     /**

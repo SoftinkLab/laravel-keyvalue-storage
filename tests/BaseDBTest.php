@@ -2,11 +2,11 @@
 
 namespace SoftinkLab\LaravelKeyvalueStorage\Test;
 
-use SoftinkLab\LaravelKeyvalueStorage\Facades\KVOption;
 use SoftinkLab\LaravelKeyvalueStorage\KeyValueStorageServiceProvider;
 use Orchestra\Testbench\TestCase;
+use SoftinkLab\LaravelKeyvalueStorage\KVOption;
 
-abstract class FacadeTest extends TestCase
+abstract class BaseDBTest extends TestCase
 {
     /**
      * Define environment setup.
@@ -19,6 +19,8 @@ abstract class FacadeTest extends TestCase
     {
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
+        $app['config']->set('kvstorage.method', 'database');
+        $app['config']->set('kvstorage.table_name', 'kv_storage');
 
         $app['config']->set(
             'database.connections.testbench',
@@ -28,6 +30,8 @@ abstract class FacadeTest extends TestCase
                 'prefix' => '',
             ]
         );
+
+        $app->bind('kvoption', KVOption::class);
     }
 
     /**
